@@ -1,0 +1,19 @@
+# Git - Não precisamos do histórico de versões dentro do container
+.git
+.gitignore
+
+# Python - Arquivos temporários e de cache (deixam a imagem suja)
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+env/
+
+# Docker - O próprio Dockerfile não precisa estar dentro da imagem
+Dockerfile
+.dockerignore
+
+# Sistema e IDE
+.DS_Store
+.vscode/
