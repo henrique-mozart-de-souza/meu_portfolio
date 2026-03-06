@@ -14,6 +14,14 @@ A arquitetura do projeto foi desenhada para facilitar o desenvolvimento contínu
 - Seção dedicada para download de currículo (PDF).
 - Containerização (Docker) otimizada com Multi-stage, Alpine e non-root user.
 
+---
+
+
+![alt text](1.png)
+![alt text](2.png)
+
+---
+
 ## 🛠️ Tecnologias Utilizadas
 
 **Frontend:** HTML5, CSS3, Fira Code.
