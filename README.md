@@ -816,9 +816,6 @@ python3 -m venv /opt/certbot/
 /opt/certbot/bin/pip install --upgrade pip
 /opt/certbot/bin/pip install certbot certbot-nginx
 ln -s /opt/certbot/bin/certbot /usr/bin/certbot
-```
-
-</details>
 
 # 8. Loop de Verificação de DNS (Evita falhas do Let's Encrypt)
 # Resgata o IP Público atual da EC2 usando IMDSv2 (Padrão de segurança AWS)
@@ -842,6 +839,7 @@ certbot --nginx -d hmscloud.online -d www.hmscloud.online --non-interactive --ag
 # 10. Reinicia o Nginx para aplicar o SSL definitivo
 systemctl restart nginx
 ```
+</details>
 
 ## 🔧 Guia Rápido de Debug (Comandos Docker)
 
