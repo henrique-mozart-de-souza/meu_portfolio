@@ -1,0 +1,333 @@
+/* Variáveis de Cores */
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg: #141414;
+    --text-color: #e0e0e0;
+    --neon-green: #00ffcc;
+    --neon-green-dim: rgba(0, 255, 204, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(circle at 50% 100%, rgba(0, 255, 204, 0.08) 0%, var(--bg-color) 60%);
+    background-attachment: fixed;
+    color: var(--text-color);
+    font-family: 'Fira Code', monospace;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* --- Header & Navegação --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    color: var(--neon-green);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--neon-green);
+}
+
+.btn-cv {
+    background-color: var(--neon-green-dim);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 8px 15px;
+    border-radius: 4px;
+}
+
+.btn-cv:hover {
+    background-color: var(--neon-green);
+    color: var(--bg-color);
+}
+
+/* --- Seções Gerais --- */
+.section-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 40px;
+    font-size: 0.9rem;
+}
+
+/* --- Introdução: Lado a Lado (Foto e Terminal) --- */
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-container {
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--card-bg); 
+    outline: 2px solid var(--neon-green);
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
+}
+
+/* --- Janela de Terminal --- */
+.terminal-window {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    border: 1px solid #333;
+    overflow: hidden;
+    text-align: left;
+    width: 100%;
+    max-width: 700px;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.terminal-header {
+    background-color: #1a1a1a;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.terminal-title {
+    color: #888;
+    font-size: 0.8rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.terminal-body {
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+.prompt { color: var(--neon-green); margin-right: 10px; }
+.highlight { color: var(--neon-green); font-weight: bold; }
+.terminal-output { margin: 15px 0 15px 20px; border-left: 2px solid #333; padding-left: 15px; }
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    background-color: var(--neon-green);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* --- Seção de Hard Skills --- */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+    justify-content: flex-start;
+}
+
+.skill-badge {
+    background-color: var(--neon-green-dim);
+    color: var(--neon-green);
+    border: 1px solid var(--neon-green);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-badge:hover {
+    background-color: var(--neon-green);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+/* --- Grid de Experiência --- */
+.grid-experiencia {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.card-exp {
+    background-color: var(--card-bg);
+    border: 1px solid #222;
+    padding: 25px;
+    border-radius: 8px;
+    text-align: left;
+    transition: border-color 0.3s, transform 0.3s;
+    border-top: 3px solid #333;
+}
+
+.card-exp:hover {
+    border-color: var(--neon-green);
+    border-top: 3px solid var(--neon-green);
+    transform: translateY(-5px);
+}
+
+.card-exp h3 {
+    color: var(--neon-green);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.card-exp h4 {
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #333;
+}
+
+.card-exp h4 span {
+    color: #888;
+    font-size: 0.85rem;
+}
+
+.card-exp ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.card-exp ul li {
+    color: #aaa;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.card-exp ul li::before {
+    content: ">";
+    color: var(--neon-green);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* --- Cards de Diferenciais (Why Me) --- */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px; /* Adicionado um espaçamento superior */
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #222;
+    text-align: left;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--neon-green);
+}
+
+.card .icon {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+/* --- Rodapé (Footer) --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid #333;
+    margin-top: 60px;
+}
+
+footer p {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: var(--neon-green);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--text-color);
+    text-shadow: 0 0 8px var(--neon-green);
+}

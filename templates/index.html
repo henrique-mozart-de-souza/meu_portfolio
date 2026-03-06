@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>_ henrique@opensource</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">>_ henrique@opensource_</div>
+        <nav>
+            <a href="#sobre">Sobre Mim</a>
+            <a href="#experiencia">Experiência</a>
+            <a href="#skills">Stack</a>
+            <a href="#diferenciais">Diferenciais</a>
+            <a href="https://github.com/henrique-mozart-de-souza" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/henrique-mozart-de-souza-b3697b6b/" target="_blank">LinkedIn</a>
+            <a href="/download-cv" class="btn-cv">Baixar CV</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="sobre" class="section-container" style="max-width: 1100px; text-align: left; margin-top: 40px;">
+            <div class="hero-content">
+                <div class="profile-container">
+                    <img src="{{ url_for('static', filename='img/foto_perfil.jpg') }}" alt="Foto de Henrique" class="profile-pic">
+                </div>
+                
+                <div class="terminal-window">
+                    <div class="terminal-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">bash - henrique@ubuntu: ~</span>
+                    </div>
+                    <div class="terminal-body">
+                        <p><span class="prompt">$</span> cat /home/henrique/profile.txt</p>
+                        <div class="terminal-output">
+                            <p><span class="highlight">Nome:</span> Henrique Mozart de Souza</p>
+                            <p><span class="highlight">Cargo:</span> Cloud Engineer</p>
+                            <p><span class="highlight">Localização:</span> São Paulo - SP, Brasil</p>
+                            <p><span class="highlight">Especialidade:</span> AWS, Terraform, Kubernetes, Python, Linux</p>
+                            <p><span class="highlight">Certificação:</span> AWS Certified Cloud Practitioner</p>
+                            <p><span class="highlight">Status:</span> 🟢 Disponível para novos desafios</p>
+                        </div>
+                        <p><span class="prompt">$</span> <span class="cursor">_</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiencia" class="section-container" style="max-width: 1100px;">
+            <h2 style="text-align: left;"><span class="prompt">></span> ./history.sh --work</h2>
+            
+            <div class="grid-experiencia">
+                <div class="card-exp">
+                    <h3>Cloud Engineer</h3>
+                    <h4>Dellent Consulting <span>| Out 2025 - Presente</span></h4>
+                    <ul>
+                        <li>Desenvolvimento e gestão de infraestrutura AWS usando <strong>Terraform</strong> (IaC), garantindo rastreabilidade.</li>
+                        <li>Implementação e manutenção de aplicações serverless e containers em <strong>AWS Lambda e Amazon EKS</strong>.</li>
+                        <li>Otimização de pipelines de CI/CD utilizando <strong>GitHub Actions</strong>.</li>
+                    </ul>
+                </div>
+
+                <div class="card-exp">
+                    <h3>Analista Cloud</h3>
+                    <h4>Claranet Brasil <span>| Jan 2023 - Out 2025</span></h4>
+                    <ul>
+                        <li>Gerenciamento Multi-Cloud (AWS, GCP, Azure) com foco em alta disponibilidade e otimização de custos (FinOps).</li>
+                        <li>Automação de processos com <strong>Python, Shell Script e Ansible</strong>, reduzindo incidentes em 30%.</li>
+                        <li>Monitoramento proativo e criação de alertas avançados via CloudWatch, Zabbix e Grafana.</li>
+                    </ul>
+                </div>
+
+                <div class="card-exp">
+                    <h3>Analista de Suporte</h3>
+                    <h4>Algar Tech (Whirlpool) <span>| Out 2013 - Set 2022</span></h4>
+                    <ul>
+                        <li>Suporte especializado a ambientes Linux e bancos de dados MySQL, focando em otimização de consultas.</li>
+                        <li>Implementação de observabilidade em servidores utilizando <strong>Zabbix</strong>.</li>
+                        <li>Condução da migração de mais de 600 usuários para o Google Workspace.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section-container" style="max-width: 1100px;">
+            <h2 style="text-align: left;"><span class="prompt">~</span> cat skills.json</h2>
+            <div class="skills-container">
+                <span class="skill-badge">AWS (EC2, EKS, Lambda)</span>
+                <span class="skill-badge">Terraform</span>
+                <span class="skill-badge">Kubernetes & Docker</span>
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">Shell Script</span>
+                <span class="skill-badge">CI/CD (Jenkins, GitHub Actions)</span>
+                <span class="skill-badge">Ansible</span>
+                <span class="skill-badge">Zabbix & Grafana</span>
+                <span class="skill-badge">Linux</span>
+            </div>
+        </section>
+
+        <section id="diferenciais" class="section-container" style="max-width: 1100px; margin-top: 80px;">
+            <h2 style="text-align: left;"><span class="prompt">></span> ./why_me.sh</h2>
+            <p class="subtitle" style="text-align: left;">Combinação única de expertise técnica e visão estratégica para transformar sua infraestrutura.</p>
+            
+            <div class="grid-cards">
+                <div class="card">
+                    <span class="icon">☁️</span>
+                    <h3>Multi-Cloud & Arquitetura</h3>
+                    <p>Atuação em ambientes críticos multi-cloud (AWS, GCP, Azure), com expertise em otimização e alta disponibilidade.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">🏗️</span>
+                    <h3>Infrastructure as Code</h3>
+                    <p>Desenvolvimento e gestão de infraestrutura automatizada e reproduzível utilizando Terraform e Ansible.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">⚙️</span>
+                    <h3>Automação & CI/CD</h3>
+                    <p>Criação e otimização de pipelines (Jenkins, GitHub Actions, GitLab) e automação de processos com Python.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">📦</span>
+                    <h3>Containers & Serverless</h3>
+                    <p>Operação e troubleshooting em Amazon EKS, Kubernetes e arquiteturas serverless com AWS Lambda.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">📈</span>
+                    <h3>Observabilidade</h3>
+                    <p>Monitoramento proativo e criação de alertas com CloudWatch, Zabbix e Grafana para antecipação de falhas.</p>
+                </div>
+                <div class="card">
+                    <span class="icon">💰</span>
+                    <h3>FinOps & Otimização</h3>
+                    <p>Análise de consumo de recursos e identificação de oportunidades para redução de custos em ambientes Cloud.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>>_ Desenvolvido com ☁️ por Henrique Mozart de Souza</p>
+        <div class="footer-links">
+            <a href="https://github.com/henrique-mozart-de-souza" target="_blank">[ GitHub ]</a>
+            <a href="https://www.linkedin.com/in/henrique-mozart-de-souza-b3697b6b/" target="_blank">[ LinkedIn ]</a>
+        </div>
+    </footer>
+</body>
+</html>
