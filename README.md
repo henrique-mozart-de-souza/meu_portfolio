@@ -763,6 +763,9 @@ Para evitar a necessidade de criar e armazenar uma AMI (o que gera custos de sna
 
 Este script roda com privilégios de `root` no primeiro boot da máquina, instalando dependências, baixando o código, subindo o container e configurando o Nginx automaticamente.
 
+<details>
+<summary>👉 Exibir </summary>
+
 ```bash
 #!/bin/bash
 
@@ -813,6 +816,8 @@ python3 -m venv /opt/certbot/
 /opt/certbot/bin/pip install --upgrade pip
 /opt/certbot/bin/pip install certbot certbot-nginx
 ln -s /opt/certbot/bin/certbot /usr/bin/certbot
+
+</details>
 
 # 8. Loop de Verificação de DNS (Evita falhas do Let's Encrypt)
 # Resgata o IP Público atual da EC2 usando IMDSv2 (Padrão de segurança AWS)
