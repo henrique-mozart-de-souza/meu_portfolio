@@ -1,13 +1,12 @@
-# Estágio 1: Build e Instalação
 FROM python:3.12-alpine
 
 WORKDIR /app
 
-# Copia apenas o necessário para instalar as dependências primeiro
-# (Isso ajuda no cache do Docker)
+# 1. Copia apenas o arquivo de dependências primeiro
 COPY requirements.txt .
 
-# Instalando dependências e limpando o cache em um único comando
+# 2. Instala, limpa o cache do pip e remove arquivos desnecessários 
+# TUDO EM UMA ÚNICA CAMADA (RUN)
 RUN pip install --no-cache-dir -r requirements.txt && \
     find /usr/local -depth \
         \( \
@@ -16,8 +15,12 @@ RUN pip install --no-cache-dir -r requirements.txt && \
             \( -type f -a \( -name '*.pyc' -o -name '*.pyo' \) \) \
         \) -exec rm -rf '{}' +
 
-# Copia o restante do código
+# 3. Copia o seu código (Certifique-se que o .dockerignore está correto!)
 COPY . .
+
+# 4. Variáveis de ambiente para performance
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 EXPOSE 5000
 
