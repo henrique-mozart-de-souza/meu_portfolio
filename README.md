@@ -25,7 +25,7 @@ A arquitetura do projeto foi desenhada para facilitar o desenvolvimento contínu
 ## 🛠️ Tecnologias Utilizadas
 
 **Frontend:** HTML5, CSS3, Fira Code.
-**Backend & Infraestrutura:** Python 3, Flask, Gunicorn, Docker (Alpine), AWS EC2 (Amazon Linux), Nginx (Proxy Reverso), Let's Encrypt (SSL/TLS).
+**Backend & Infraestrutura:** Python 3, Flask, Gunicorn, Docker (Alpine), AWS EC2 (Amazon Linux), Docker Slim (Hardening & Minification), Nginx (Proxy Reverso), Let's Encrypt (SSL/TLS).
 
 ---
 
@@ -116,14 +116,40 @@ A grande vantagem da nossa arquitetura com Docker é que o servidor final (EC2) 
 `sudo usermod -aG docker ec2-user`
 *(Nota: Você precisará sair e entrar novamente na conexão SSH para essa permissão fazer efeito).*
 
+### Passo 1.2: Instalação do Docker Slim (Ferramenta de Senioridade)
+Para atingir o estado de "Zero-Payload" e segurança máxima, utilizamos o Docker Slim para analisar dinamicamente o container e remover binários desnecessários (como shells e pacotes de gerenciamento).
+
+```bash
+# Baixar o binário oficial (Linux)
+curl -L [https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh](https://raw.githubusercontent.com/slimtoolkit/slim/master/scripts/install-slim.sh) | sudo bash
+```
+
 ### Passo 2: Clonar o repositório
 Baixe o código-fonte para a sua máquina:
 `git clone git@github.com:henrique-mozart-de-souza/meu_portfolio.git`
 `cd meu_portfolio`
 
-### Passo 3: Construir a imagem Docker mínima (Multi-stage Alpine)
-Vamos criar a imagem otimizada da aplicação. O Dockerfile utiliza um processo de duas etapas para garantir que a imagem final tenha o menor tamanho possível.
-`sudo docker build -t meu-portfolio-flask .`
+### Passo 3: Construir a imagem Docker mínima (Multi-stage + Dynamic Analysis (Slim))
+
+Nosso pipeline de build segue o padrão de **Defesa em Profundidade**:
+1. **Builder:** Compila dependências.
+2. **Runtime (Alpine):** Cria a imagem funcional (aprox. 98MB).
+3. **Hardening (Slim):** O Docker Slim executa uma "sonda" (http-probe) no container, identifica quais arquivos são realmente acessados pelo Flask e remove todo o restante, incluindo o Shell (`/bin/sh`), dificultando movimentações laterais em caso de invasão.
+
+# 1. Build da imagem funcional
+`sudo docker build -t meu-portfolio-flask:latest .`
+
+# 2. Minificação e Hardening com Probing Ativo
+# O comando abaixo abre o container, testa a rota '/' e gera a imagem final
+```bash
+sudo slim build \
+  --target meu-portfolio-flask:latest \
+  --tag meu-portfolio-flask:slim \
+  --http-probe-retry-count 5 \
+  --http-probe-retry-wait 5 \
+  --http-probe-cmd / \
+  --http-probe-cmd /download-cv
+```
 
 #### Passo 3.1: requirements.txt
 <details>
